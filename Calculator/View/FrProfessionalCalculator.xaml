@@ -1,0 +1,122 @@
+﻿<Page x:Class="Calculator.View.FrProfessionalCalculator"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Calculator.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="600"
+      Title="FrProfessionalCalculator">
+
+    <Grid Background="Silver">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*"></RowDefinition>
+            <RowDefinition Height="10px"></RowDefinition>
+            <RowDefinition Height="90*"></RowDefinition>
+            <RowDefinition Height="90*"></RowDefinition>
+            <RowDefinition Height="90*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition Height="50*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition Height="50*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition Height="50*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition Height="50*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition Height="50*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition Height="50*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition Height="50*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition Height="50*"></RowDefinition>
+            <RowDefinition Height="10px"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15px"></ColumnDefinition>
+            <ColumnDefinition Width="85*"></ColumnDefinition>
+            <ColumnDefinition Width="12*"></ColumnDefinition>
+            <ColumnDefinition Width="85*"></ColumnDefinition>
+            <ColumnDefinition Width="12*"></ColumnDefinition>
+            <ColumnDefinition Width="85*"></ColumnDefinition>
+            <ColumnDefinition Width="12*"></ColumnDefinition>
+            <ColumnDefinition Width="85*"></ColumnDefinition>
+            <ColumnDefinition Width="12*"></ColumnDefinition>
+            <ColumnDefinition Width="85*"></ColumnDefinition>
+            <ColumnDefinition Width="12*"></ColumnDefinition>
+            <ColumnDefinition Width="85*"></ColumnDefinition>
+            <ColumnDefinition Width="15px"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="ChangeToCasual" Grid.Column="0" Grid.Row="0" FontSize="15" Grid.ColumnSpan="13" Content="Переключиться на обычный калькулятор"  Command="{Binding OpenCasualCalculatorPage}"  />
+        <TextBlock Background="White" Grid.Column="1"  Grid.Row="2" FontSize="35" TextWrapping="Wrap" Grid.ColumnSpan="11" Text="{Binding Path = FirstInputArea, Mode = TwoWay}" TextAlignment="Right"></TextBlock>
+        <TextBlock Background="White" Grid.Column="1"  Grid.Row="3" FontSize="65" TextWrapping="Wrap" Grid.ColumnSpan="11" Text="{Binding Path = MainActionArea, Mode = TwoWay}" TextAlignment="Right"></TextBlock>
+        <TextBlock Background="White" Grid.Column="1"  Grid.Row="4" FontSize="35" TextWrapping="Wrap" Grid.ColumnSpan="11" Text="{Binding Path = SecondInputArea, Mode = TwoWay}" TextAlignment="Right"></TextBlock>
+        <Button x:Name="FirstMemory" Grid.Column="1" Grid.Row="6" FontSize="20" Grid.ColumnSpan="11" Content="{Binding Path = FirstMemoryCell, Mode = TwoWay}"  Command="{Binding ChoiceFirstMemory}"  />
+        <Button x:Name="SecondMemory" Grid.Column="1" Grid.Row="8" FontSize="20" Grid.ColumnSpan="11" Content="{Binding Path = SecondMemoryCell, Mode = TwoWay}"  Command="{Binding ChoiceSecondMemory}"  />
+        <Button x:Name="MPlus" Grid.Column="1" Grid.Row="10" FontSize="30" Content="M+"  Command="{Binding PlusToMemory}"  />
+        <Button x:Name="MMinus" Grid.Column="3" Grid.Row="10" FontSize="30" Content="M-"  Command="{Binding MinusFromMemory}"  />
+        <Button x:Name="MR" Grid.Column="5" Grid.Row="10" FontSize="30" Content="MR"  Command="{Binding TakeFromMemory}"  />
+        <Button x:Name="MC" Grid.Column="7" Grid.Row="10" FontSize="30" Content="MC"  Command="{Binding ClearMemory}"  />
+        <Button x:Name="sin" Grid.Column="9" Grid.Row="10" FontSize="30" Content="sin"  Command="{Binding GetSinus}"  />
+        <Button x:Name="cos" Grid.Column="11" Grid.Row="10" FontSize="35" Content="cos"  Command="{Binding GetCosinus}"  />
+        <Button x:Name="ClearAll" Grid.Column="1" Grid.Row="12" FontSize="30" Content="C"  Command="{Binding ClearAll}"  />
+        <Button x:Name="Clear" Grid.Column="3" Grid.Row="12" FontSize="30" Content="CE"  Command="{Binding ClearActualArea}"  />
+        <Button x:Name="Delete" Grid.Column="5" Grid.Row="12" FontSize="30" Content="←"  Command="{Binding DeleteLastChar}"  />
+        <Button x:Name="Fission" Grid.Column="7" Grid.Row="12" FontSize="30" Content="/"  Command="{Binding AddDivide}"  />
+        <Button x:Name="tg" Grid.Column="9" Grid.Row="12" FontSize="30" Content="tan"  Command="{Binding GetTangens}"  />
+        <Button x:Name="arctg" Grid.Column="11" Grid.Row="12" FontSize="35" Content="atan"  Command="{Binding GetArcTangens}"  />
+        <Button x:Name="One" Grid.Column="1" Grid.Row="14" FontSize="30" Content="1"  Command="{Binding AddOne}"  />
+        <Button x:Name="Two" Grid.Column="3" Grid.Row="14" FontSize="30" Content="2"  Command="{Binding AddTwo}"  />
+        <Button x:Name="Three" Grid.Column="5" Grid.Row="14" FontSize="30" Content="3"  Command="{Binding AddThree}"  />
+        <Button x:Name="Multiplication" Grid.Column="7" Grid.Row="14" FontSize="30" Content="*"  Command="{Binding AddMultiply}"  />
+        <Button x:Name="Log" Grid.Column="9" Grid.Row="14" FontSize="30" Content="Log"  Command="{Binding AddLog}"  />
+        <Button x:Name="Ln" Grid.Column="11" Grid.Row="14" FontSize="35" Content="Ln"  Command="{Binding GetLn}"  />
+        <Button x:Name="Four" Grid.Column="1" Grid.Row="16" FontSize="30" Content="4"  Command="{Binding AddFour}"  />
+        <Button x:Name="Five" Grid.Column="3" Grid.Row="16" FontSize="30" Content="5"  Command="{Binding AddFive}"  />
+        <Button x:Name="Six" Grid.Column="5" Grid.Row="16" FontSize="30" Content="6"  Command="{Binding AddSix}"  />
+        <Button x:Name="Minus" Grid.Column="7" Grid.Row="16" FontSize="30" Content="-"  Command="{Binding AddMinus}"  />
+        <Button x:Name="Exp" Grid.Column="9" Grid.Row="16" FontSize="30" Content="Exp"  Command="{Binding AddExp}"  />
+        <Button x:Name="XquadY" Grid.Column="11" Grid.Row="16" FontSize="35" Content="x^y"  Command="{Binding AddQuad}"  />
+        <Button x:Name="Seven" Grid.Column="1" Grid.Row="18" FontSize="30" Content="7"  Command="{Binding AddSeven}"  />
+        <Button x:Name="Eight" Grid.Column="3" Grid.Row="18" FontSize="30" Content="8"  Command="{Binding AddEight}"  />
+        <Button x:Name="Nine" Grid.Column="5" Grid.Row="18" FontSize="30" Content="9"  Command="{Binding AddNine}"  />
+        <Button x:Name="Plus" Grid.Column="7" Grid.Row="18" FontSize="30" Content="+"  Command="{Binding AddPlus}"  />
+        <Button x:Name="ExclamationValue" Grid.Column="9" Grid.Row="18" FontSize="30" Content="n!"  Command="{Binding GetFactorial}"  />
+        <Button x:Name="OneFissionValue" Grid.Column="11" Grid.Row="18" FontSize="35" Content="1/n"  Command="{Binding DivisionToSelf}"  />
+        <Button x:Name="Point" Grid.Column="1" Grid.Row="20" FontSize="30" Content=","  Command="{Binding AddPoint}"  />
+        <Button x:Name="Zero" Grid.Column="3" Grid.Row="20" FontSize="30" Content="0"  Command="{Binding AddZero}"  />
+        <Button x:Name="PlusMinus" Grid.Column="5" Grid.Row="20" FontSize="30" Content="±"  Command="{Binding ChangeOperator}"  />
+        <Button x:Name="Equal" Grid.Column="7" Grid.Row="20" FontSize="35" Content="=" Grid.ColumnSpan="5"  Command="{Binding GetResult}"  />
+    </Grid>
+    <Page.InputBindings>
+        <KeyBinding Key="D0" Command="{Binding AddZero}" />
+        <KeyBinding Key="NumPad0" Command="{Binding AddZero}" />
+        <KeyBinding Key="D1" Command="{Binding AddOne}" />
+        <KeyBinding Key="NumPad1" Command="{Binding AddOne}" />
+        <KeyBinding Key="D2" Command="{Binding AddTwo}" />
+        <KeyBinding Key="NumPad2" Command="{Binding AddTwo}" />
+        <KeyBinding Key="D3" Command="{Binding AddThree}" />
+        <KeyBinding Key="NumPad3" Command="{Binding AddThree}" />
+        <KeyBinding Key="D4" Command="{Binding AddFour}" />
+        <KeyBinding Key="NumPad4" Command="{Binding AddFour}" />
+        <KeyBinding Key="D5" Command="{Binding AddFive}" />
+        <KeyBinding Key="NumPad5" Command="{Binding AddFive}" />
+        <KeyBinding Key="D6" Command="{Binding AddSix}" />
+        <KeyBinding Key="NumPad6" Command="{Binding AddSix}" />
+        <KeyBinding Key="D7" Command="{Binding AddSeven}" />
+        <KeyBinding Key="NumPad7" Command="{Binding AddSeven}" />
+        <KeyBinding Key="D8" Command="{Binding AddEight}" />
+        <KeyBinding Key="NumPad8" Command="{Binding AddEight}" />
+        <KeyBinding Key="D9" Command="{Binding AddNine}" />
+        <KeyBinding Key="NumPad9" Command="{Binding AddNine}" />
+        <KeyBinding Key="Decimal" Command="{Binding AddPoint}" />
+        <KeyBinding Key="Add" Command="{Binding AddPlus}" />
+        <KeyBinding Key="Subtract" Command="{Binding AddMinus}" />
+        <KeyBinding Key="Multiply" Command="{Binding AddMultiply}" />
+        <KeyBinding Key="Divide" Command="{Binding AddDivide}" />
+        <KeyBinding Key="Tab" Command="{Binding OpenCasualCalculatorPage}" />
+        <KeyBinding Key="Delete" Command="{Binding ClearActualArea}" />
+        <KeyBinding Key="Backspace" Command="{Binding DeleteLastChar}" />
+    </Page.InputBindings>
+</Page>
