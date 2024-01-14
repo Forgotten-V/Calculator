@@ -47,16 +47,16 @@ namespace Calculator.Model
             }
         }
 
-        public void DivisionToSelf (string Value)
+        public void DivisionToSelf (string value)
         {
-            double OriginalValue = Convert.ToDouble(Value);
+            double OriginalValue = Convert.ToDouble(value);
             OriginalValue = 1 / OriginalValue;
             ActualMemory = $"{OriginalValue}";
         }
 
-        public void GetFactorial (string Value)
+        public void GetFactorial (string value)
         {
-            double DoubleValue = Convert.ToDouble(Value);
+            double DoubleValue = Convert.ToDouble(value);
             int IntVlaue = Convert.ToInt32(DoubleValue);
             double ResultValue = 1;
             for (int i = 1; i < IntVlaue + 1; i++)
@@ -66,45 +66,45 @@ namespace Calculator.Model
             ActualMemory = $"{ResultValue}";
         }
 
-        public void GetLn (string Value)
+        public void GetLn (string value)
         {
-            double ResultValue = Convert.ToDouble(Value);
+            double ResultValue = Convert.ToDouble(value);
             ResultValue = Math.Log(ResultValue);
             ActualMemory = $"{ResultValue}";
         }
 
-        public void GetCosinus(string Value)
+        public void GetCosinus(string value)
         {
-            double ResultValue = Convert.ToDouble(Value);
+            double ResultValue = Convert.ToDouble(value);
             ResultValue = Math.Cos(ResultValue);
             ActualMemory = $"{ResultValue}";
         }
 
-        public void GetSinus(string Value)
+        public void GetSinus(string value)
         {
-            double ResultValue = Convert.ToDouble(Value);
+            double ResultValue = Convert.ToDouble(value);
             ResultValue = Math.Sin(ResultValue);
             ActualMemory = $"{ResultValue}";
         }
 
-        public void GetArcTangens(string Value)
+        public void GetArcTangens(string value)
         {
-            double ResultValue = Convert.ToDouble(Value);
+            double ResultValue = Convert.ToDouble(value);
             ResultValue = Math.Atan(ResultValue);
             ActualMemory = $"{ResultValue}";
         }
 
-        public void GetTangens(string Value)
+        public void GetTangens(string value)
         {
-            double ResultValue = Convert.ToDouble(Value);
+            double ResultValue = Convert.ToDouble(value);
             ResultValue = Math.Tan(ResultValue);
             ActualMemory = $"{ResultValue}";
         }
 
-        public void PlusToMemory (string Value)
+        public void PlusToMemory (string value)
         {
             double CurrentValue;
-            double NewValue = Convert.ToDouble(Value);
+            double NewValue = Convert.ToDouble(value);
             if (MemoryMode == 0)
             {
                 CurrentValue = Convert.ToDouble(FirstMemory);
@@ -119,10 +119,10 @@ namespace Calculator.Model
             }
         }
 
-        public void MinusFromMemory(string Value)
+        public void MinusFromMemory(string value)
         {
             double CurrentValue;
-            double NewValue = Convert.ToDouble(Value);
+            double NewValue = Convert.ToDouble(value);
             if (MemoryMode == 0)
             {
                 CurrentValue = Convert.ToDouble(FirstMemory);
@@ -137,42 +137,42 @@ namespace Calculator.Model
             }
         }
 
-        public void GetResult (string FirstValue, string SecondValue, string Operation)
+        public void GetResult (string firstValue, string secondValue, string operation)
         {
-            if (SecondValue == "" || Operation == "" || SecondValue == "-")
+            if (secondValue == "" || operation == "" || secondValue == "-")
             {
                 ErrorInOperation = true;
                 return;
             }
-            if (SecondValue[SecondValue.Length - 1] == ',')
+            if (secondValue[secondValue.Length - 1] == ',')
             {
-                SecondValue += "0";
+                secondValue += "0";
             }
-            if (Convert.ToDouble(SecondValue) == 0 && Operation == "/")
+            if (Convert.ToDouble(secondValue) == 0 && operation == "/")
             {
                 MessageBox.Show("∞");
                 return;
             }
             double DoubleResult = 0;
-            double FirstDouble = Convert.ToDouble(FirstValue);
-            double SecondDouble = Convert.ToDouble(SecondValue);
-            if (Operation == "+")
+            double FirstDouble = Convert.ToDouble(firstValue);
+            double SecondDouble = Convert.ToDouble(secondValue);
+            if (operation == "+")
             {
                 DoubleResult = FirstDouble + SecondDouble;
             }
-            else if (Operation == "-")
+            else if (operation == "-")
             {
                 DoubleResult = FirstDouble - SecondDouble;
             }
-            else if (Operation == "/")
+            else if (operation == "/")
             {
                 DoubleResult = FirstDouble / SecondDouble;
             }
-            else if (Operation == "*")
+            else if (operation == "*")
             {
                 DoubleResult = FirstDouble * SecondDouble;
             }
-            else if (Operation == "^")
+            else if (operation == "^")
             {
                 DoubleResult = FirstDouble;
                 int SecondInt = Convert.ToInt32(SecondDouble);
@@ -181,16 +181,16 @@ namespace Calculator.Model
                     DoubleResult = DoubleResult * FirstDouble;
                 }
             }
-            else if (Operation == "Exp")
+            else if (operation == "Exp")
             {
                 int SecondInt = Convert.ToInt32(SecondDouble);
                 for (int i = 0; i < SecondInt; i++)
                 {
-                    FirstValue += "0";
+                    firstValue += "0";
                 }
-                DoubleResult = Convert.ToDouble(FirstValue);
+                DoubleResult = Convert.ToDouble(firstValue);
             }
-            else if (Operation == "log")
+            else if (operation == "log")
             {
                 if (SecondDouble == 0 || FirstDouble == 0)
                 {

@@ -19,45 +19,50 @@ namespace Calculator.ViewModel
 
         
 
-        public void InputValueNumber (string Value)
+        public void InputValueNumber (string value)
         {
             if (MainActionArea == "")
             {
-                FirstInputArea = Model.InputFirstOperator(Value);
+                FirstInputArea = Model.InputFirstOperator(value);
             }
             else
             {
-                if (SecondInputArea == "0" && Value == "0")
+                if (SecondInputArea == "0" && value == "0")
                 {
                     SecondInputArea = "0";
                 }
                 else if (SecondInputArea == "0")
                 {
-                    SecondInputArea = Value;
+                    SecondInputArea = value;
                 }
                 else
                 {
-                    SecondInputArea += Value;
+                    SecondInputArea += value;
                 }
             }
         }
 
-        public void ChangeOperationMode (string Operation)
+        public void ChangeOperationMode (string operation)
         {
             char LastChar = FirstInputArea[FirstInputArea.Length - 1];
             if (LastChar == ',')
             {
                 InputValueNumber("0");
             }
-            if (MainActionArea != Operation)
+            if (MainActionArea == "")
             {
-                MainActionArea = Operation;
+                MainActionArea = operation;
                 SecondInputArea = "0";
             }
-            else
+            else if (MainActionArea != "")
             {
-                MainActionArea = "";
-                SecondInputArea = "";
+                VGetResult();
+                if (MainModel.ErrorInOperation == true)
+                {
+                    return;
+                }
+                MainActionArea = operation;
+                SecondInputArea = "0";
             }
         }
 
@@ -305,8 +310,6 @@ namespace Calculator.ViewModel
         }
         private void VChoiceFirstMemory()
         {
-            MainModel.ActualMemory = MainModel.FirstMemory;
-            FirstInputArea = MainModel.FirstMemory;
             MainModel.FirstMemoryStatus = " *Активно*";
             MainModel.SecondMemoryStatus = "";
             FirstMemoryCell = MainModel.FirstMemory + MainModel.FirstMemoryStatus;
@@ -320,8 +323,6 @@ namespace Calculator.ViewModel
         }
         private void VChoiceSecondMemory()
         {
-            MainModel.ActualMemory = MainModel.SecondMemory;
-            FirstInputArea = MainModel.SecondMemory;
             MainModel.FirstMemoryStatus = "";
             MainModel.SecondMemoryStatus = " *Активно*";
             FirstMemoryCell = MainModel.FirstMemory + MainModel.FirstMemoryStatus;
@@ -618,7 +619,7 @@ namespace Calculator.ViewModel
         {
             get { return new NavigateRelayCommand(VGetResult); }
         }
-        private void VGetResult()
+        public void VGetResult()
         {
             Model.GetResult(FirstInputArea, SecondInputArea, MainActionArea);
             if (MainModel.ErrorInOperation == true)
